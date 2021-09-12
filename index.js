@@ -70,10 +70,10 @@ app.post("/contact", (req, res) => {
   sendSmtpEmail.htmlContent = `<html>
   <body>
   <h4 style={{marginBottom: 20, textAlign: 'center'}}>User Details</h4>
-  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 10}}>Full Name: ${name}</p>
-  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 10}}>Phone Number: ${phone}</p>
-  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 10}}>Email: ${email}</p>
-  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 10}}>Message: ${message}</p>
+  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 5}}>Full Name: ${name}</p>
+  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 5}}>Phone Number: ${phone}</p>
+  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 5}}>Email: ${email}</p>
+  <p style={{fontSize: 40, fontWeight: 500, marginBottom: 5}}>Message: ${message}</p>
   </body>
   </html>`;
   sendSmtpEmail.textContent = `Name: ${name}
@@ -84,7 +84,9 @@ app.post("/contact", (req, res) => {
     name: "Contact",
     email: "tridot.official@gmail.com",
   };
-  sendSmtpEmail.to = [{ email: "anasalam027@gmail.com", name: "Anas" }];
+  sendSmtpEmail.to = [
+    { email: "gayatriramenterprises@gmail.com", name: "Dipesh" },
+  ];
 
   apiInstance.sendTransacEmail(sendSmtpEmail).then(
     (data) => {
@@ -111,8 +113,13 @@ app.post("/support", (req, res) => {
   Email: ${email},
   Phone: ${phone},
   Comments: ${comments}`;
-  sendSmtpEmail.sender = { name: "Contact", email: "contact@clicktridot.com" };
-  sendSmtpEmail.to = [{ email: "anasalam027@gmail.com", name: "Anas" }];
+  sendSmtpEmail.sender = {
+    name: "Contact",
+    email: "tridot.official@gmail.com",
+  };
+  sendSmtpEmail.to = [
+    { email: "gayatriramenterprises@gmail.com", name: "Dipesh" },
+  ];
 
   apiInstance.sendTransacEmail(sendSmtpEmail).then(
     (data) => {
