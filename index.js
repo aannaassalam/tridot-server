@@ -17,11 +17,18 @@ var apiKey = defaultClient.authentications["api-key"];
 apiKey.apiKey =
   "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";
 
-app.listen(5000, () => {
+let port = process.env.PORT || 5000;
+
+app.listen(port, () => {
   console.log("Server Started at 5000");
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    optionSuccesStatus: 200,
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
